@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.plcoding.stockmarketapp.presentation.destinations.CompanyInfoScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlin.math.sin
@@ -49,7 +50,7 @@ fun CompanyListingsScreen(
                         company = company,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { }//TODO navigate to
+                            .clickable { navigator.navigate(CompanyInfoScreenDestination(company.symbol)) }
                             .padding(16.dp)
                     )
                     if (i < state.companies.size) {
